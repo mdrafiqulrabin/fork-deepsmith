@@ -1,0 +1,77 @@
+// A Generator generates testcases.
+
+syntax = "proto2";
+package deepsmith;
+
+import "deeplearning/deepsmith/proto/deepsmith.proto";
+import "deeplearning/deepsmith/proto/service.proto";
+import "deeplearning/clgen/proto/clgen.proto";
+
+service GeneratorService {
+  rpc GetGeneratorCapabilities (GetGeneratorCapabilitiesRequest) returns (GetGeneratorCapabilitiesResponse);
+  rpc GenerateTestcases (GenerateTestcasesRequest) returns (GenerateTestcasesResponse);
+}
+
+message GetGeneratorCapabilitiesRequest {
+  optional ServiceStatus status = 1;
+}
+
+message GetGeneratorCapabilitiesResponse {
+  optional ServiceStatus status = 1;
+  optional string toolchain = 2;
+  optional Generator generator = 3;
+}
+
+message GenerateTestcasesRequest {
+  optional ServiceStatus status = 1;
+  // The minimum number of testcases to generate.
+  optional int32 num_testcases = 2;
+}
+
+message GenerateTestcasesResponse {
+  optional ServiceStatus status = 1;
+  repeated Testcase testcases = 2;
+}
+
+// A "generator" which always produces the same output.
+message DummyGenerator {
+  // Configuration of the service host.
+  optional ServiceConfig service = 1;
+  // The testcase which is "generated".
+  optional Testcase testcase_to_generate = 2;
+}
+
+// A very simple generator which produces strings of random characters.
+message RandCharGenerator {
+  // Configuration of the service host.
+  optional ServiceConfig service = 1;
+  optional string toolchain = 2;
+  repeated Harness harness = 3;
+  // The lower and upper bounds of string lengths to generate.
+  optional int32 string_min_len = 4;
+  optional int32 string_max_len = 5;
+}
+
+// A testcase generator which uses CLgen to generate programs.
+message ClgenGenerator {
+  // Configuration of the service host.
+  optional ServiceConfig service = 1;
+  // The CLgen instance configuration.
+  optional clgen.Instance instance = 2;
+  // The skeleton Testcases used to convert CLgen samples into DeepSmith
+  // testcases. For each CLgen sample, a copy of all of the Testcase skeletons
+  // is made and the 'src' input is set as the sample text.
+  repeated Testcase testcase_skeleton = 5;
+}
+
+// A testcase generator which uses CLSmith to generate programs.
+message ClsmithGenerator {
+  // Configuration of the service host.
+  optional ServiceConfig service = 1;
+  // A list of command line arguments to invoke CLSmith with.
+  repeated string opt = 2;
+  // The skeleton Testcases used to convert CLgen samples into DeepSmith
+  // testcases. For each CLgen sample, a copy of all of the Testcase skeletons
+  // is made and the 'src' input is set as the sample text.
+  repeated Testcase testcase_skeleton = 3;
+}
