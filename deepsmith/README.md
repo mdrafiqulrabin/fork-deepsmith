@@ -7,7 +7,7 @@ corpus of example programs. Then, it uses the model to automatically generate
 tens of thousands of realistic programs. Finally, it applies established
 differential testing methodologies on them to expose bugs in compilers.
 
-<img src="../../docs/2018_07_issta/img/deepsmith.png" height="500">
+<img src="https://github.com/ChrisCummins/phd/blob/master/docs/2018_07_issta/img/deepsmith.png" height="500">
 
 ## Getting Started
 
