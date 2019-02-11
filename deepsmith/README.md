@@ -19,7 +19,7 @@ $ docker run chriscummins/opencl_fuzz
 ```
 
 See 
-[//docs/2018_07_issta/artifact_evaluation](/docs/2018_07_issta/artifact_evaluation)
+[//docs/2018_07_issta/artifact_evaluation](https://github.com/ChrisCummins/phd/tree/master/docs/2018_07_issta/artifact_evaluation)
 for the supporting artifact of the original DeepSmith publication.
 
 ## Resources
