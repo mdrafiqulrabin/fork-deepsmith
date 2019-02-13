@@ -1,0 +1,407 @@
+Last login: Mon Feb 11 12:54:01 on ttys000
+RAFIQULs-MacBook-Pro:deepsmith mdrafiqulrabin$ docker run chriscummins/opencl_fuzz
+Unable to find image 'chriscummins/opencl_fuzz:latest' locally
+latest: Pulling from chriscummins/opencl_fuzz
+683abbb4ea60: Pull complete 
+bf8a216446be: Pull complete 
+f83037d373e1: Pull complete 
+b4a80ee5721c: Pull complete 
+1fdbcf356d61: Pull complete 
+90487e82139b: Pull complete 
+a51f6ce1b19d: Pull complete 
+235d7b6e3cc3: Pull complete 
+4d90a0eda40d: Pull complete 
+df45304a8109: Pull complete 
+20014c19bf8f: Pull complete 
+8cd70c6ef0b3: Pull complete 
+01538512ec5e: Pull complete 
+0b55617c51a1: Pull complete 
+7739e02f6673: Pull complete 
+56a2c685ebfb: Pull complete 
+283f1ee53685: Pull complete 
+c0be8b550b91: Pull complete 
+Digest: sha256:e3c30a96de0a9c9fd307903bbc1194a99d44da550ef898b0a4fbeb5cb569f1aa
+Status: Downloaded newer image for chriscummins/opencl_fuzz:latest
+I0211 21:51:13.108774 140281394804480 opencl_fuzz.py:473] Recording interesting results in /out.
+I0211 21:51:13.109525 140281394804480 opencl_fuzz.py:393] Preparing generator.
+I0211 21:51:13.116415 140281394804480 opencl_fuzz.py:403] ClgenGenerator:
+ instance {
+  working_dir: "/cache"
+  sampler {
+    start_text: "kernel void "
+    batch_size: 1
+    temperature_micros: 800000
+    termination_criteria {
+      symtok {
+        depth_increase_token: "{"
+        depth_decrease_token: "}"
+      }
+    }
+    termination_criteria {
+      maxlen {
+        maximum_tokens_in_sample: 2500
+      }
+    }
+  }
+  pretrained_model: "/data/model"
+}
+testcase_skeleton {
+  toolchain: "opencl"
+  generator {
+    name: "clgen"
+    opts {
+      key: "model"
+      value: "/data/model"
+    }
+    opts {
+      key: "sampler"
+      value: "8a31b6e06bd3b9c5f83ad49bd0d80e9705585687"
+    }
+  }
+  harness {
+    name: "cldrive"
+  }
+  inputs {
+    key: "gsize"
+    value: "1,1,1"
+  }
+  inputs {
+    key: "lsize"
+    value: "1,1,1"
+  }
+}
+
+I0211 21:51:13.116610 140281394804480 opencl_fuzz.py:357] Preparing device under test.
+I0211 21:51:13.125237 140281394804480 cldrive.py:106] OpenCL testbed:
+toolchain: "opencl"
+name: "Emulator|Oclgrind|Oclgrind_Simulator|Oclgrind_18.3|1.2"
+opts {
+  key: "device"
+  value: "Oclgrind Simulator"
+}
+opts {
+  key: "device_type"
+  value: "Emulator"
+}
+opts {
+  key: "driver"
+  value: "Oclgrind 18.3"
+}
+opts {
+  key: "opencl_opt"
+  value: "enabled"
+}
+opts {
+  key: "opencl_version"
+  value: "1.2"
+}
+opts {
+  key: "platform"
+  value: "Oclgrind"
+}
+
+I0211 21:51:13.125885 140281394804480 opencl_fuzz.py:383] Preparing gold standard testbed.
+I0211 21:51:13.131836 140281394804480 cldrive.py:106] OpenCL testbed:
+toolchain: "opencl"
+name: "Emulator|Oclgrind|Oclgrind_Simulator|Oclgrind_18.3|1.2"
+opts {
+  key: "device"
+  value: "Oclgrind Simulator"
+}
+opts {
+  key: "device_type"
+  value: "Emulator"
+}
+opts {
+  key: "driver"
+  value: "Oclgrind 18.3"
+}
+opts {
+  key: "opencl_opt"
+  value: "enabled"
+}
+opts {
+  key: "opencl_version"
+  value: "1.2"
+}
+opts {
+  key: "platform"
+  value: "Oclgrind"
+}
+
+I0211 21:51:13.132553 140281394804480 opencl_fuzz.py:281] Starting generate / test / eval batch 1 ...
+I0211 21:51:13.133151 140281394804480 opencl_fuzz.py:120] Generating 128 testcases ...
+/app/experimental/deeplearning/deepsmith/opencl_fuzz/opencl_fuzz_image.binary.runfiles/pypi__h5py_2_7_1/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+I0211 21:51:18.590846 140281394804480 tensorflow_backend.py:160] Instantiated TensorFlow graph with 2,193,500 trainable parameters in 5,456 ms.
+I0211 21:51:18.692101 140281394804480 tf_logging.py:116] Restoring parameters from /data/model/checkpoints/checkpoint-50
+/app/experimental/deeplearning/deepsmith/opencl_fuzz/opencl_fuzz_image.binary.runfiles/phd/deeplearning/clgen/models/tensorflow_backend.py:401: RuntimeWarning: divide by zero encountered in log
+  predictions = np.log(np.asarray(predictions).astype('float64')) / temperature
+I0211 21:51:19.416506 140281394804480 clgen_pretrained.py:77] Generated sample 1.
+I0211 21:51:19.441084 140281394804480 clgen_pretrained.py:77] Generated sample 2.
+I0211 21:51:19.547221 140281394804480 clgen_pretrained.py:77] Generated sample 3.
+I0211 21:51:19.751332 140281394804480 clgen_pretrained.py:77] Generated sample 4.
+I0211 21:51:19.786199 140281394804480 clgen_pretrained.py:77] Generated sample 5.
+I0211 21:51:19.997884 140281394804480 clgen_pretrained.py:77] Generated sample 6.
+I0211 21:51:20.188154 140281394804480 clgen_pretrained.py:77] Generated sample 7.
+I0211 21:51:20.370261 140281394804480 clgen_pretrained.py:77] Generated sample 8.
+I0211 21:51:20.412460 140281394804480 clgen_pretrained.py:77] Generated sample 9.
+I0211 21:51:20.485716 140281394804480 clgen_pretrained.py:77] Generated sample 10.
+I0211 21:51:20.498424 140281394804480 clgen_pretrained.py:77] Generated sample 11.
+I0211 21:51:20.741750 140281394804480 clgen_pretrained.py:77] Generated sample 12.
+I0211 21:51:21.254786 140281394804480 clgen_pretrained.py:77] Generated sample 13.
+I0211 21:51:21.539566 140281394804480 clgen_pretrained.py:77] Generated sample 14.
+I0211 21:51:21.575113 140281394804480 clgen_pretrained.py:77] Generated sample 15.
+I0211 21:51:21.685686 140281394804480 clgen_pretrained.py:77] Generated sample 16.
+I0211 21:51:21.781532 140281394804480 clgen_pretrained.py:77] Generated sample 17.
+I0211 21:51:21.794766 140281394804480 clgen_pretrained.py:77] Generated sample 18.
+I0211 21:51:21.831701 140281394804480 clgen_pretrained.py:77] Generated sample 19.
+I0211 21:51:21.877891 140281394804480 clgen_pretrained.py:77] Generated sample 20.
+I0211 21:51:22.007020 140281394804480 clgen_pretrained.py:77] Generated sample 21.
+I0211 21:51:22.008449 140281394804480 clgen_pretrained.py:77] Generated sample 22.
+I0211 21:51:22.090346 140281394804480 clgen_pretrained.py:77] Generated sample 23.
+I0211 21:51:22.114004 140281394804480 clgen_pretrained.py:77] Generated sample 24.
+I0211 21:51:22.519579 140281394804480 clgen_pretrained.py:77] Generated sample 25.
+I0211 21:51:22.687926 140281394804480 clgen_pretrained.py:77] Generated sample 26.
+I0211 21:51:22.974676 140281394804480 clgen_pretrained.py:77] Generated sample 27.
+I0211 21:51:23.147611 140281394804480 clgen_pretrained.py:77] Generated sample 28.
+I0211 21:51:23.468254 140281394804480 clgen_pretrained.py:77] Generated sample 29.
+I0211 21:51:23.469991 140281394804480 clgen_pretrained.py:77] Generated sample 30.
+I0211 21:51:23.493720 140281394804480 clgen_pretrained.py:77] Generated sample 31.
+I0211 21:51:23.808258 140281394804480 clgen_pretrained.py:77] Generated sample 32.
+I0211 21:51:24.037744 140281394804480 clgen_pretrained.py:77] Generated sample 33.
+I0211 21:51:24.085129 140281394804480 clgen_pretrained.py:77] Generated sample 34.
+I0211 21:51:24.502527 140281394804480 clgen_pretrained.py:77] Generated sample 35.
+I0211 21:51:24.632225 140281394804480 clgen_pretrained.py:77] Generated sample 36.
+I0211 21:51:24.644755 140281394804480 clgen_pretrained.py:77] Generated sample 37.
+I0211 21:51:26.831143 140281394804480 clgen_pretrained.py:77] Generated sample 38.
+I0211 21:51:27.322852 140281394804480 clgen_pretrained.py:77] Generated sample 39.
+I0211 21:51:28.517352 140281394804480 clgen_pretrained.py:77] Generated sample 40.
+I0211 21:51:28.589327 140281394804480 clgen_pretrained.py:77] Generated sample 41.
+I0211 21:51:28.988599 140281394804480 clgen_pretrained.py:77] Generated sample 42.
+I0211 21:51:30.139270 140281394804480 clgen_pretrained.py:77] Generated sample 43.
+I0211 21:51:30.322041 140281394804480 clgen_pretrained.py:77] Generated sample 44.
+I0211 21:51:38.423724 140281394804480 clgen_pretrained.py:77] Generated sample 45.
+I0211 21:51:40.064359 140281394804480 clgen_pretrained.py:77] Generated sample 46.
+I0211 21:51:40.715464 140281394804480 clgen_pretrained.py:77] Generated sample 47.
+I0211 21:51:48.435004 140281394804480 clgen_pretrained.py:77] Generated sample 48.
+I0211 21:51:48.435797 140281394804480 clgen_pretrained.py:77] Generated sample 49.
+I0211 21:51:48.436420 140281394804480 clgen_pretrained.py:77] Generated sample 50.
+I0211 21:51:48.437100 140281394804480 clgen_pretrained.py:77] Generated sample 51.
+I0211 21:51:48.437747 140281394804480 clgen_pretrained.py:77] Generated sample 52.
+I0211 21:51:48.438342 140281394804480 clgen_pretrained.py:77] Generated sample 53.
+I0211 21:51:48.438860 140281394804480 clgen_pretrained.py:77] Generated sample 54.
+I0211 21:51:48.439406 140281394804480 clgen_pretrained.py:77] Generated sample 55.
+I0211 21:51:48.439916 140281394804480 clgen_pretrained.py:77] Generated sample 56.
+I0211 21:51:48.440514 140281394804480 clgen_pretrained.py:77] Generated sample 57.
+I0211 21:51:48.441115 140281394804480 clgen_pretrained.py:77] Generated sample 58.
+I0211 21:51:48.441747 140281394804480 clgen_pretrained.py:77] Generated sample 59.
+I0211 21:51:48.442499 140281394804480 clgen_pretrained.py:77] Generated sample 60.
+I0211 21:51:48.443059 140281394804480 clgen_pretrained.py:77] Generated sample 61.
+I0211 21:51:48.443654 140281394804480 clgen_pretrained.py:77] Generated sample 62.
+I0211 21:51:48.444235 140281394804480 clgen_pretrained.py:77] Generated sample 63.
+I0211 21:51:48.444855 140281394804480 clgen_pretrained.py:77] Generated sample 64.
+I0211 21:51:49.010162 140281394804480 clgen_pretrained.py:77] Generated sample 65.
+I0211 21:51:49.115097 140281394804480 clgen_pretrained.py:77] Generated sample 66.
+I0211 21:51:49.157825 140281394804480 clgen_pretrained.py:77] Generated sample 67.
+I0211 21:51:49.171722 140281394804480 clgen_pretrained.py:77] Generated sample 68.
+I0211 21:51:49.430637 140281394804480 clgen_pretrained.py:77] Generated sample 69.
+I0211 21:51:49.478409 140281394804480 clgen_pretrained.py:77] Generated sample 70.
+I0211 21:51:49.987310 140281394804480 clgen_pretrained.py:77] Generated sample 71.
+I0211 21:51:50.064894 140281394804480 clgen_pretrained.py:77] Generated sample 72.
+I0211 21:51:50.127521 140281394804480 clgen_pretrained.py:77] Generated sample 73.
+I0211 21:51:50.166855 140281394804480 clgen_pretrained.py:77] Generated sample 74.
+I0211 21:51:50.205404 140281394804480 clgen_pretrained.py:77] Generated sample 75.
+I0211 21:51:50.322915 140281394804480 clgen_pretrained.py:77] Generated sample 76.
+I0211 21:51:50.423853 140281394804480 clgen_pretrained.py:77] Generated sample 77.
+I0211 21:51:50.535041 140281394804480 clgen_pretrained.py:77] Generated sample 78.
+I0211 21:51:50.890975 140281394804480 clgen_pretrained.py:77] Generated sample 79.
+I0211 21:51:50.903538 140281394804480 clgen_pretrained.py:77] Generated sample 80.
+I0211 21:51:50.967312 140281394804480 clgen_pretrained.py:77] Generated sample 81.
+I0211 21:51:51.369297 140281394804480 clgen_pretrained.py:77] Generated sample 82.
+I0211 21:51:51.454302 140281394804480 clgen_pretrained.py:77] Generated sample 83.
+I0211 21:51:51.503636 140281394804480 clgen_pretrained.py:77] Generated sample 84.
+I0211 21:51:51.564341 140281394804480 clgen_pretrained.py:77] Generated sample 85.
+I0211 21:51:51.601928 140281394804480 clgen_pretrained.py:77] Generated sample 86.
+I0211 21:51:51.615290 140281394804480 clgen_pretrained.py:77] Generated sample 87.
+I0211 21:51:51.669532 140281394804480 clgen_pretrained.py:77] Generated sample 88.
+I0211 21:51:51.722381 140281394804480 clgen_pretrained.py:77] Generated sample 89.
+I0211 21:51:52.092270 140281394804480 clgen_pretrained.py:77] Generated sample 90.
+I0211 21:51:52.232471 140281394804480 clgen_pretrained.py:77] Generated sample 91.
+I0211 21:51:52.324524 140281394804480 clgen_pretrained.py:77] Generated sample 92.
+I0211 21:51:52.421882 140281394804480 clgen_pretrained.py:77] Generated sample 93.
+I0211 21:51:52.435012 140281394804480 clgen_pretrained.py:77] Generated sample 94.
+I0211 21:51:52.512611 140281394804480 clgen_pretrained.py:77] Generated sample 95.
+I0211 21:51:52.852628 140281394804480 clgen_pretrained.py:77] Generated sample 96.
+I0211 21:51:52.906006 140281394804480 clgen_pretrained.py:77] Generated sample 97.
+I0211 21:51:52.992004 140281394804480 clgen_pretrained.py:77] Generated sample 98.
+I0211 21:51:53.006599 140281394804480 clgen_pretrained.py:77] Generated sample 99.
+I0211 21:51:53.367142 140281394804480 clgen_pretrained.py:77] Generated sample 100.
+I0211 21:51:53.482681 140281394804480 clgen_pretrained.py:77] Generated sample 101.
+I0211 21:51:53.731545 140281394804480 clgen_pretrained.py:77] Generated sample 102.
+I0211 21:51:53.781586 140281394804480 clgen_pretrained.py:77] Generated sample 103.
+I0211 21:51:54.477132 140281394804480 clgen_pretrained.py:77] Generated sample 104.
+I0211 21:51:54.989495 140281394804480 clgen_pretrained.py:77] Generated sample 105.
+I0211 21:51:55.182838 140281394804480 clgen_pretrained.py:77] Generated sample 106.
+I0211 21:51:56.090158 140281394804480 clgen_pretrained.py:77] Generated sample 107.
+I0211 21:52:16.529234 140281394804480 clgen_pretrained.py:77] Generated sample 108.
+I0211 21:52:17.171174 140281394804480 clgen_pretrained.py:77] Generated sample 109.
+I0211 21:52:17.785686 140281394804480 clgen_pretrained.py:77] Generated sample 110.
+I0211 21:52:23.471533 140281394804480 clgen_pretrained.py:77] Generated sample 111.
+I0211 21:52:23.472081 140281394804480 clgen_pretrained.py:77] Generated sample 112.
+I0211 21:52:23.472807 140281394804480 clgen_pretrained.py:77] Generated sample 113.
+I0211 21:52:23.473656 140281394804480 clgen_pretrained.py:77] Generated sample 114.
+I0211 21:52:23.474456 140281394804480 clgen_pretrained.py:77] Generated sample 115.
+I0211 21:52:23.475136 140281394804480 clgen_pretrained.py:77] Generated sample 116.
+I0211 21:52:23.475816 140281394804480 clgen_pretrained.py:77] Generated sample 117.
+I0211 21:52:23.476550 140281394804480 clgen_pretrained.py:77] Generated sample 118.
+I0211 21:52:23.477199 140281394804480 clgen_pretrained.py:77] Generated sample 119.
+I0211 21:52:23.477967 140281394804480 clgen_pretrained.py:77] Generated sample 120.
+I0211 21:52:23.478655 140281394804480 clgen_pretrained.py:77] Generated sample 121.
+I0211 21:52:23.479271 140281394804480 clgen_pretrained.py:77] Generated sample 122.
+I0211 21:52:23.480066 140281394804480 clgen_pretrained.py:77] Generated sample 123.
+I0211 21:52:23.480787 140281394804480 clgen_pretrained.py:77] Generated sample 124.
+I0211 21:52:23.481520 140281394804480 clgen_pretrained.py:77] Generated sample 125.
+I0211 21:52:23.482274 140281394804480 clgen_pretrained.py:77] Generated sample 126.
+I0211 21:52:23.483054 140281394804480 clgen_pretrained.py:77] Generated sample 127.
+I0211 21:52:23.483858 140281394804480 clgen_pretrained.py:77] Generated sample 128.
+I0211 21:52:23.484762 140281394804480 pretrained.py:131] Produced 128 samples at a rate of 505 ms / sample.
+I0211 21:52:23.485464 140281394804480 opencl_fuzz.py:132] Evaluating 128 testcases on Oclgrind ...
+I0211 21:52:23.907950 140281394804480 cldrive.py:134] Testcase 1: BUILD_FAILURE.
+I0211 21:52:24.322223 140281394804480 cldrive.py:134] Testcase 2: PASS.
+I0211 21:52:24.672424 140281394804480 cldrive.py:134] Testcase 3: PASS.
+I0211 21:52:24.919317 140281394804480 cldrive.py:134] Testcase 4: PASS.
+I0211 21:52:25.158187 140281394804480 cldrive.py:134] Testcase 5: PASS.
+I0211 21:52:25.406731 140281394804480 cldrive.py:134] Testcase 6: BUILD_FAILURE.
+I0211 21:52:25.637420 140281394804480 cldrive.py:134] Testcase 7: BUILD_FAILURE.
+I0211 21:52:25.871085 140281394804480 cldrive.py:134] Testcase 8: BUILD_FAILURE.
+I0211 21:52:26.107146 140281394804480 cldrive.py:134] Testcase 9: BUILD_FAILURE.
+I0211 21:52:26.340124 140281394804480 cldrive.py:134] Testcase 10: BUILD_FAILURE.
+I0211 21:52:26.580635 140281394804480 cldrive.py:134] Testcase 11: BUILD_FAILURE.
+I0211 21:52:26.815808 140281394804480 cldrive.py:134] Testcase 12: BUILD_FAILURE.
+I0211 21:52:27.059930 140281394804480 cldrive.py:134] Testcase 13: BUILD_FAILURE.
+I0211 21:52:27.298677 140281394804480 cldrive.py:134] Testcase 14: BUILD_FAILURE.
+I0211 21:52:27.539707 140281394804480 cldrive.py:134] Testcase 15: BUILD_FAILURE.
+I0211 21:52:27.776204 140281394804480 cldrive.py:134] Testcase 16: BUILD_FAILURE.
+I0211 21:52:28.019839 140281394804480 cldrive.py:134] Testcase 17: PASS.
+I0211 21:52:28.260441 140281394804480 cldrive.py:134] Testcase 18: BUILD_FAILURE.
+I0211 21:52:28.500287 140281394804480 cldrive.py:134] Testcase 19: BUILD_FAILURE.
+I0211 21:52:28.736288 140281394804480 cldrive.py:134] Testcase 20: BUILD_FAILURE.
+I0211 21:52:28.977388 140281394804480 cldrive.py:134] Testcase 21: BUILD_FAILURE.
+I0211 21:52:29.232787 140281394804480 cldrive.py:134] Testcase 22: BUILD_FAILURE.
+I0211 21:52:29.481070 140281394804480 cldrive.py:134] Testcase 23: BUILD_FAILURE.
+I0211 21:52:29.726788 140281394804480 cldrive.py:134] Testcase 24: BUILD_FAILURE.
+I0211 21:52:29.987400 140281394804480 cldrive.py:134] Testcase 25: BUILD_FAILURE.
+I0211 21:52:30.241085 140281394804480 cldrive.py:134] Testcase 26: BUILD_FAILURE.
+I0211 21:52:30.498483 140281394804480 cldrive.py:134] Testcase 27: BUILD_FAILURE.
+I0211 21:52:30.755254 140281394804480 cldrive.py:134] Testcase 28: BUILD_FAILURE.
+I0211 21:52:31.021801 140281394804480 cldrive.py:134] Testcase 29: BUILD_FAILURE.
+I0211 21:52:31.285359 140281394804480 cldrive.py:134] Testcase 30: BUILD_FAILURE.
+I0211 21:52:31.533790 140281394804480 cldrive.py:134] Testcase 31: BUILD_FAILURE.
+I0211 21:52:31.807408 140281394804480 cldrive.py:134] Testcase 32: BUILD_FAILURE.
+I0211 21:52:32.090353 140281394804480 cldrive.py:134] Testcase 33: BUILD_FAILURE.
+I0211 21:52:32.345310 140281394804480 cldrive.py:134] Testcase 34: BUILD_FAILURE.
+I0211 21:52:32.589699 140281394804480 cldrive.py:134] Testcase 35: BUILD_FAILURE.
+I0211 21:52:32.833022 140281394804480 cldrive.py:134] Testcase 36: BUILD_FAILURE.
+I0211 21:52:33.073466 140281394804480 cldrive.py:134] Testcase 37: BUILD_FAILURE.
+I0211 21:52:33.342248 140281394804480 cldrive.py:134] Testcase 38: BUILD_FAILURE.
+I0211 21:52:33.577690 140281394804480 cldrive.py:134] Testcase 39: BUILD_FAILURE.
+I0211 21:52:33.823140 140281394804480 cldrive.py:134] Testcase 40: BUILD_FAILURE.
+I0211 21:52:34.081674 140281394804480 cldrive.py:134] Testcase 41: BUILD_FAILURE.
+I0211 21:52:34.326334 140281394804480 cldrive.py:134] Testcase 42: BUILD_FAILURE.
+I0211 21:52:34.570564 140281394804480 cldrive.py:134] Testcase 43: BUILD_FAILURE.
+I0211 21:52:34.821990 140281394804480 cldrive.py:134] Testcase 44: BUILD_FAILURE.
+I0211 21:52:35.102462 140281394804480 cldrive.py:134] Testcase 45: BUILD_FAILURE.
+I0211 21:52:35.358374 140281394804480 cldrive.py:134] Testcase 46: BUILD_FAILURE.
+I0211 21:52:35.645554 140281394804480 cldrive.py:134] Testcase 47: BUILD_FAILURE.
+I0211 21:52:35.951588 140281394804480 cldrive.py:134] Testcase 48: BUILD_FAILURE.
+I0211 21:52:36.274765 140281394804480 cldrive.py:134] Testcase 49: BUILD_FAILURE.
+I0211 21:52:36.521338 140281394804480 cldrive.py:134] Testcase 50: BUILD_FAILURE.
+I0211 21:52:36.769394 140281394804480 cldrive.py:134] Testcase 51: BUILD_FAILURE.
+I0211 21:52:37.004774 140281394804480 cldrive.py:134] Testcase 52: BUILD_FAILURE.
+I0211 21:52:37.254278 140281394804480 cldrive.py:134] Testcase 53: BUILD_FAILURE.
+I0211 21:52:37.506735 140281394804480 cldrive.py:134] Testcase 54: BUILD_FAILURE.
+I0211 21:52:37.769375 140281394804480 cldrive.py:134] Testcase 55: BUILD_FAILURE.
+I0211 21:52:38.181829 140281394804480 cldrive.py:134] Testcase 56: BUILD_FAILURE.
+I0211 21:52:38.429655 140281394804480 cldrive.py:134] Testcase 57: BUILD_FAILURE.
+I0211 21:52:38.668617 140281394804480 cldrive.py:134] Testcase 58: BUILD_FAILURE.
+I0211 21:52:38.915021 140281394804480 cldrive.py:134] Testcase 59: BUILD_FAILURE.
+I0211 21:52:39.275795 140281394804480 cldrive.py:134] Testcase 60: BUILD_FAILURE.
+I0211 21:52:39.538845 140281394804480 cldrive.py:134] Testcase 61: BUILD_FAILURE.
+I0211 21:52:39.839724 140281394804480 cldrive.py:134] Testcase 62: BUILD_FAILURE.
+I0211 21:52:40.096562 140281394804480 cldrive.py:134] Testcase 63: BUILD_FAILURE.
+I0211 21:52:40.341794 140281394804480 cldrive.py:134] Testcase 64: BUILD_FAILURE.
+I0211 21:52:40.581467 140281394804480 cldrive.py:134] Testcase 65: PASS.
+I0211 21:52:40.818755 140281394804480 cldrive.py:134] Testcase 66: BUILD_FAILURE.
+I0211 21:52:41.055477 140281394804480 cldrive.py:134] Testcase 67: BUILD_FAILURE.
+I0211 21:52:41.291189 140281394804480 cldrive.py:134] Testcase 68: BUILD_FAILURE.
+I0211 21:52:41.531741 140281394804480 cldrive.py:134] Testcase 69: BUILD_FAILURE.
+I0211 21:52:41.761995 140281394804480 cldrive.py:134] Testcase 70: BUILD_FAILURE.
+I0211 21:52:42.000299 140281394804480 cldrive.py:134] Testcase 71: BUILD_FAILURE.
+I0211 21:52:42.240887 140281394804480 cldrive.py:134] Testcase 72: BUILD_FAILURE.
+I0211 21:52:42.479674 140281394804480 cldrive.py:134] Testcase 73: BUILD_FAILURE.
+I0211 21:52:42.714015 140281394804480 cldrive.py:134] Testcase 74: BUILD_FAILURE.
+I0211 21:52:42.942833 140281394804480 cldrive.py:134] Testcase 75: BUILD_FAILURE.
+I0211 21:52:43.193572 140281394804480 cldrive.py:134] Testcase 76: PASS.
+I0211 21:52:43.432234 140281394804480 cldrive.py:134] Testcase 77: BUILD_FAILURE.
+I0211 21:52:43.667843 140281394804480 cldrive.py:134] Testcase 78: BUILD_FAILURE.
+I0211 21:52:43.906055 140281394804480 cldrive.py:134] Testcase 79: BUILD_FAILURE.
+I0211 21:52:44.149859 140281394804480 cldrive.py:134] Testcase 80: BUILD_FAILURE.
+I0211 21:52:44.390926 140281394804480 cldrive.py:134] Testcase 81: BUILD_FAILURE.
+I0211 21:52:44.632868 140281394804480 cldrive.py:134] Testcase 82: BUILD_FAILURE.
+I0211 21:52:44.867698 140281394804480 cldrive.py:134] Testcase 83: BUILD_FAILURE.
+I0211 21:52:45.101166 140281394804480 cldrive.py:134] Testcase 84: BUILD_FAILURE.
+I0211 21:52:45.341540 140281394804480 cldrive.py:134] Testcase 85: BUILD_FAILURE.
+I0211 21:52:45.581737 140281394804480 cldrive.py:134] Testcase 86: BUILD_FAILURE.
+I0211 21:52:45.814304 140281394804480 cldrive.py:134] Testcase 87: BUILD_FAILURE.
+I0211 21:52:46.057243 140281394804480 cldrive.py:134] Testcase 88: BUILD_FAILURE.
+I0211 21:52:46.300842 140281394804480 cldrive.py:134] Testcase 89: BUILD_FAILURE.
+I0211 21:52:46.538260 140281394804480 cldrive.py:134] Testcase 90: BUILD_FAILURE.
+I0211 21:52:46.775342 140281394804480 cldrive.py:134] Testcase 91: BUILD_FAILURE.
+I0211 21:52:47.017118 140281394804480 cldrive.py:134] Testcase 92: BUILD_FAILURE.
+I0211 21:52:47.253175 140281394804480 cldrive.py:134] Testcase 93: BUILD_FAILURE.
+I0211 21:52:47.497678 140281394804480 cldrive.py:134] Testcase 94: BUILD_FAILURE.
+I0211 21:52:47.750411 140281394804480 cldrive.py:134] Testcase 95: BUILD_FAILURE.
+I0211 21:52:48.004415 140281394804480 cldrive.py:134] Testcase 96: BUILD_FAILURE.
+I0211 21:52:48.262211 140281394804480 cldrive.py:134] Testcase 97: BUILD_FAILURE.
+I0211 21:52:48.516123 140281394804480 cldrive.py:134] Testcase 98: BUILD_FAILURE.
+I0211 21:52:48.760022 140281394804480 cldrive.py:134] Testcase 99: BUILD_FAILURE.
+I0211 21:52:49.062155 140281394804480 cldrive.py:134] Testcase 100: BUILD_FAILURE.
+I0211 21:52:49.352059 140281394804480 cldrive.py:134] Testcase 101: BUILD_FAILURE.
+I0211 21:52:49.645756 140281394804480 cldrive.py:134] Testcase 102: BUILD_FAILURE.
+I0211 21:52:49.917855 140281394804480 cldrive.py:134] Testcase 103: BUILD_FAILURE.
+I0211 21:52:50.185598 140281394804480 cldrive.py:134] Testcase 104: BUILD_FAILURE.
+I0211 21:52:50.457669 140281394804480 cldrive.py:134] Testcase 105: BUILD_FAILURE.
+I0211 21:52:50.721924 140281394804480 cldrive.py:134] Testcase 106: BUILD_FAILURE.
+I0211 21:52:50.993456 140281394804480 cldrive.py:134] Testcase 107: BUILD_FAILURE.
+I0211 21:52:51.263951 140281394804480 cldrive.py:134] Testcase 108: BUILD_FAILURE.
+I0211 21:52:51.628134 140281394804480 cldrive.py:134] Testcase 109: BUILD_FAILURE.
+I0211 21:52:51.920560 140281394804480 cldrive.py:134] Testcase 110: BUILD_FAILURE.
+I0211 21:52:52.302957 140281394804480 cldrive.py:134] Testcase 111: BUILD_FAILURE.
+I0211 21:52:52.592099 140281394804480 cldrive.py:134] Testcase 112: BUILD_FAILURE.
+I0211 21:52:52.922431 140281394804480 cldrive.py:134] Testcase 113: BUILD_FAILURE.
+I0211 21:52:53.240705 140281394804480 cldrive.py:134] Testcase 114: BUILD_FAILURE.
+I0211 21:52:53.588580 140281394804480 cldrive.py:134] Testcase 115: BUILD_FAILURE.
+I0211 21:52:53.889038 140281394804480 cldrive.py:134] Testcase 116: BUILD_FAILURE.
+I0211 21:52:54.196964 140281394804480 cldrive.py:134] Testcase 117: BUILD_FAILURE.
+I0211 21:52:54.435723 140281394804480 cldrive.py:134] Testcase 118: BUILD_FAILURE.
+I0211 21:52:54.692575 140281394804480 cldrive.py:134] Testcase 119: BUILD_FAILURE.
+I0211 21:52:54.968515 140281394804480 cldrive.py:134] Testcase 120: BUILD_FAILURE.
+I0211 21:52:55.292653 140281394804480 cldrive.py:134] Testcase 121: BUILD_FAILURE.
+I0211 21:52:55.559355 140281394804480 cldrive.py:134] Testcase 122: BUILD_FAILURE.
+I0211 21:52:55.892115 140281394804480 cldrive.py:134] Testcase 123: BUILD_FAILURE.
+I0211 21:52:56.211910 140281394804480 cldrive.py:134] Testcase 124: BUILD_FAILURE.
+I0211 21:52:56.528895 140281394804480 cldrive.py:134] Testcase 125: BUILD_FAILURE.
+I0211 21:52:56.781012 140281394804480 cldrive.py:134] Testcase 126: BUILD_FAILURE.
+I0211 21:52:57.117579 140281394804480 cldrive.py:134] Testcase 127: BUILD_FAILURE.
+I0211 21:52:57.391473 140281394804480 cldrive.py:134] Testcase 128: BUILD_FAILURE.
+I0211 21:52:57.393637 140281394804480 opencl.py:26] Cannot difftest OpenCL kernel with floating point.
+I0211 21:52:57.394099 140281394804480 opencl.py:26] Cannot difftest OpenCL kernel with floating point.
+I0211 21:52:57.394654 140281394804480 opencl.py:26] Cannot difftest OpenCL kernel with floating point.
+I0211 21:52:57.394946 140281394804480 opencl.py:26] Cannot difftest OpenCL kernel with floating point.
+I0211 21:52:57.395698 140281394804480 opencl.py:26] Cannot difftest OpenCL kernel with floating point.
+I0211 21:52:57.397181 140281394804480 opencl.py:26] Cannot difftest OpenCL kernel with floating point.
+I0211 21:52:57.397776 140281394804480 opencl.py:26] Cannot difftest OpenCL kernel with floating point.
+I0211 21:52:57.400360 140281394804480 opencl_fuzz.py:295] Stopping after 104.29 seconds and 1 batches (815ms / testcase).
+Found 0 interesting results.
+RAFIQULs-MacBook-Pro:deepsmith mdrafiqulrabin$ 
