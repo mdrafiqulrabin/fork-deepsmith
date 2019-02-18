@@ -31,3 +31,26 @@ for path, subdirs, files in os.walk(target):
             m_replace(thisfile, "from deeplearning.deepsmith ", "")
             m_replace(thisfile, "from deeplearning.deepsmith.", "from ")
             m_replace(thisfile, "import labm8.sqlutil", "import labm8")
+
+target  = "/Users/mdrafiqulrabin/Desktop/Rabin/forkdeepsmith/deepsmith/proto/" # path
+pattern = "*.proto"    # file
+
+for path, subdirs, files in os.walk(target):
+    for name in files:
+        if fnmatch(name, pattern):
+            thisfile = os.path.join(path, name)
+            m_replace(thisfile, "import \"deeplearning/deepsmith/proto/", "import \"")
+            m_replace(thisfile, "import \"deeplearning/clgen/proto/", "import \"")
+
+
+target  = "/Users/mdrafiqulrabin/Desktop/Rabin/forkdeepsmith/clgen/proto/" # path
+pattern = "*.proto"    # file
+
+for path, subdirs, files in os.walk(target):
+    for name in files:
+        if fnmatch(name, pattern):
+            thisfile = os.path.join(path, name)
+            m_replace(thisfile, "import \"deeplearning/clgen/proto/", "import \"")
+
+
+
