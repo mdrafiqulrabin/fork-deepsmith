@@ -6,6 +6,9 @@ Fork DeepSmith from https://chriscummins.cc/deepsmith
 Summary of DeepSmith: Compiler Fuzzing through Deep Learning <br />
 Link: https://chriscummins.cc/pub/2018-acaces.pdf
 
+Presentation of DeepSmith: Compiler Fuzzing through Deep Learning <br />
+Link: https://speakerdeck.com/chriscummins/compiler-fuzzing-through-deep-learning-issta-18
+
 Paper of DeepSmith: Compiler fuzzing through deep learning <br />
 Link: https://dl.acm.org/citation.cfm?id=3213848
 
