@@ -1,5 +1,6 @@
 # forkdeepsmith
-Fork DeepSmith from https://chriscummins.cc/deepsmith
+DeepSmith: https://chriscummins.cc/deepsmith
+This repository has been forked from https://github.com/ChrisCummins/phd/tree/master/deeplearning/deepsmith
 
 # References
 
